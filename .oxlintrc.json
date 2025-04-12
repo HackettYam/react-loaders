@@ -1,0 +1,76 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error",
+    "nursery": "warn",
+    "pedantic": "warn",
+    "perf": "warn",
+    "restriction": "error",
+    "style": "warn",
+    "suspicious": "warn"
+  },
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.test.ts",
+        "*.test.tsx",
+        "*.spec.ts",
+        "*.spec.tsx"
+      ],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "no-undef": "allow",
+        "typescript/no-explicit-any": "allow"
+      }
+    }
+  ],
+  "plugins": [
+    "import",
+    "jest",
+    "jsdoc",
+    "jsx-a11y",
+    "oxc",
+    "promise",
+    "react",
+    "react-hooks",
+    "react-perf",
+    "typescript",
+    "unicorn"
+  ],
+  "rules": {
+    // eslint rules
+    "eqeqeq": "warn",
+    "quotes": ["error", "single"],
+    "eslint/semi": ["error", "never"],
+    "eslint/no-ternary": ["allow"],
+
+    // import rules
+    "import/no-cycle": "error",
+    "import/no-default-export": "allow",
+    "import/unambiguous": "allow",
+
+    // jest rules
+    "jest/prefer-lowercase-title": "allow",
+
+    // oxc rules
+    "oxc/no-optional-chaining": "allow",
+    "oxc/no-rest-spread-properties": "allow",
+
+    // react rules
+    "react/react-in-jsx-scope": "allow",
+
+    // typescript rules
+    "typescript/explicit-function-return-type": "allow",
+
+    // unicorn rules
+    "unicorn/filename-case": "allow",
+    "unicorn/no-null": "allow"
+  },
+  "settings": {}
+}

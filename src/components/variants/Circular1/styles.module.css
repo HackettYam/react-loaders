@@ -1,0 +1,79 @@
+.container {
+	--color: #3b82f6;
+	--gap: 8px;
+	--orientation: row;
+	--size: 50px;
+	--speed: 1s;
+	--stroke: 4px;
+	
+  align-items: center;
+  display: flex;
+	flex-direction: var(--orientation);
+	gap: var(--gap);
+  justify-content: center;
+	position: relative;
+}
+
+.loader {
+	display: block;
+	position: relative;
+  height: var(--size);
+  width: var(--size);
+	display: grid;
+	place-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.loader::before,
+.loader::after {
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+}
+
+.loader::before {
+	width: var(--size);
+	height: var(--size);
+	border: var(--stroke) solid var(--color);
+	border-top-color: transparent;
+	border-radius: 50%;
+	animation-duration: var(--speed);
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	z-index: 1;
+}
+
+.loader::after {
+	width: calc(var(--size) - 2px);
+	height: calc(var(--size) - 2px);
+	border: calc(var(--stroke) / 2) solid transparent;
+	border-top-color: var(--color);
+	border-radius: 50%;
+	animation-duration: calc(var(--speed) / 1.5);
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-direction: reverse;
+}
+
+.loader.animation-clockwise::before,
+.loader.animation-clockwise::after {
+  animation-name: animation-clockwise;
+}
+
+.loader.animation-anticlockwise::before,
+.loader.animation-anticlockwise::after {
+  animation-name: animation-anticlockwise;
+}
+
+@keyframes animation-clockwise {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
+@keyframes animation-anticlockwise {
+	100% {
+		transform: rotate(-1turn);
+	}
+}

@@ -1,0 +1,30 @@
+import type { Config } from 'jest'
+
+// Add any custom config to be passed to Jest
+const config: Config = {
+  coverageProvider: 'v8',
+  // moduleDirectories: [
+    // '<rootDir>/node_modules',
+    // '<rootDir>/src',
+    // '<rootDir>/src/app',
+    // '<rootDir>/src/domain',
+    // '<rootDir>/src/infra',
+    // '<rootDir>/src/ui'
+  // ],
+  preset: 'ts-jest',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  testEnvironment: 'jsdom',
+  testMatch: [
+    '<rootDir>/src/**/*.(spec|test).[tj]s?(x)'
+  ],
+  testPathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/coverage',
+    '<rootDir>/dist'
+  ],
+  transformIgnorePatterns: [
+    '<rootDir>/node_modules/'
+  ],
+}
+
+export default config
