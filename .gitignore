@@ -1,6 +1,9 @@
 node_modules
 # dist
 
-*storybook.log
+# Visual Studio Code
+.vscode
 
+# Storybook
+*storybook.log
 !stories/
